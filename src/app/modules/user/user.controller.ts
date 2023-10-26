@@ -1,24 +1,19 @@
 import catchAsync from '../../../shared/catchAsync';
+import sendResponse from '../../../shared/sendResponse';
+import { userService } from './user.services';
 
-const createData = catchAsync(async (req, res, next) => {
-  return;
+const createData = catchAsync(async (req, res) => {
+  const data = { ...req.body, role: 'user' };
+  const result = await userService.createToDB(data);
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'User created successfully',
+    data: result,
+  });
 });
-const getAllData = catchAsync(async (req, res, next) => {
-  return;
-});
-const getSingleData = catchAsync(async (req, res, next) => {
-  return;
-});
-const updateData = catchAsync(async (req, res, next) => {
-  return;
-});
-const deleteData = catchAsync(async (req, res, next) => {
-  return;
-});
+
 export const userController = {
   createData,
-  getAllData,
-  getSingleData,
-  updateData,
-  deleteData,
 };

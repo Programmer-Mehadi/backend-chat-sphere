@@ -10,9 +10,9 @@ router.post(
   validateRequest(userValidation.create),
   userController.createData
 );
-router.get('/', userController.getAllData);
-router.get('/', userController.getSingleData);
-router.put('/:id', userController.updateData);
-router.delete('/:id', userController.deleteData);
+// router.get('/', userController.getAllData);
+// router.get('/', userController.getSingleData);
+// router.put('/:id', userController.updateData);
+// router.delete('/:id', userController.deleteData);
 
 export const userRouter = router;
